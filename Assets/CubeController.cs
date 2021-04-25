@@ -16,7 +16,7 @@ public class CubeController : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        GetComponent<AudioSource>().volume = 0;
+        //GetComponent<AudioSource>().volume = 0;
     }
 
     // Update is called once per frame
@@ -34,7 +34,12 @@ public class CubeController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        GetComponent<AudioSource>().volume = 1;
+        //GetComponent<AudioSource>().volume = 1;
         audioSource.Play();
+        if (collision.gameObject.tag == "Unitychan")
+        {
+            GetComponent<AudioSource>().volume = 0;
+        }
+        
     }
 }
